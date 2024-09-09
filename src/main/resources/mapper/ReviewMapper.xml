@@ -11,10 +11,10 @@
 		select * from review where book_id=#{book_id}
 	</select>
 
-	<select id="getAvgRating" resultType="Double">
+<!--<select id="getAvgRating" resultType="Double">
 		select avg(rating) from review
 		where book_id=#{book_id}
-	</select>
+	</select>-->
 </mapper>
 
 
