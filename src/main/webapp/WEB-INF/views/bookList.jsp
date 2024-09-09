@@ -60,8 +60,9 @@
         	    			</c:forEach>
         	    		</tbody>
         	    	</table>
-        	    	<button class="btn btn-sm btn-primary" onclick="location.href='/s01/bookRegister'">책등록</button>
-
+        	    	<c:if test="${not empty cus}">
+        	    	   <button class="btn btn-sm btn-primary" onclick="location.href='/s01/bookRegister'">책등록</button>
+                    </c:if>
 	    </div>
 	    <div class="panel-footer mt-4">웹기반 인공지능 Track2 (B) - 박매일</div>
 	  </div>

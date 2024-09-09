@@ -23,4 +23,9 @@ public class CustomerController {
        }
        return "redirect:/bookList";
    }
+   @PostMapping("/logout")
+   public String logout(HttpSession session){
+       session.invalidate();
+       return "redirect:/bookList";
+   }
 }

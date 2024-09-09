@@ -104,6 +104,7 @@
 	       <h3>리뷰 작성</h3>
            <form action="/s01/reviewAdd" method="post">
            <input type="hidden" name="book_id" value="${book.id}"/>
+           <input type="hidden" name="customer_id" value="${cus.id}"/>
            <table class="table">
               <tr>
                 <td>내용</td>

@@ -3,8 +3,8 @@
 <mapper namespace="kr.smhrd.repository.ReviewRepository">
 
 	<insert id="save" parameterType="kr.smhrd.entity.Review">
-		insert into review(book_id, content, rating)
-		values(#{book_id}, #{content}, #{rating})
+		insert into review(book_id, content, rating, customer_id)
+		values(#{book_id}, #{content}, #{rating}, #{customer_id})
 	</insert>
 
 	<select id="findAll" parameterType="Long" resultType="kr.smhrd.entity.Review">

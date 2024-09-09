@@ -17,4 +17,5 @@ public class Review {
     private String content; // 내용
     private int rating; // 평점(1~5)
     private Date created_at; // 작성일자
+    private Long customer_id;
 }
