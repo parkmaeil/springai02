@@ -16,6 +16,7 @@
 	<div class="container mt-4">
 	  <h2>Book ERP System</h2>
 	  <div class="panel panel-default">
+	  <c:if test="${empty cus}">
 	    <div class="d-flex mt-3 mb-3 justify-content-center">
             <form class="form-inline" action="/s01/login" method="post">
               <label for="username">아이디:</label>
@@ -25,6 +26,16 @@
               <button type="submit" class="btn btn-primary btn-sm">로그인</button>
             </form>
 	    </div>
+	   </c:if>
+	   <c:if test="${not empty cus}">
+        <div class="d-flex mt-3 mb-3 justify-content-center">
+            <form class="form-inline" action="/s01/logout" method="post">
+              <label>Welcome:${cus.name}님 방문을 환영합니다.</label>
+              <label>Reserves:${cus.reserves}</label>
+              <button type="submit" class="btn btn-primary btn-sm">로그아웃</button>
+            </form>
+	    </div>
+	   </c:if>
 	    <div class="panel-body">
 	    <table class="table table-bordered table-hover">
         	    		<thead>
