@@ -1,6 +1,7 @@
 package kr.smhrd.repository;
 
 import kr.smhrd.entity.Review;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +15,7 @@ public interface ReviewRepository {
 
     @Select("select avg(rating) from review where book_id=#{book_id}")
     public Double getAvgRating(Long book_id);
+
+    @Delete("delete from review where id=#{id}")
+    public void reviewDelete(Long id);
 }

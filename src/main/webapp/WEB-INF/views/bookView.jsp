@@ -12,6 +12,27 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+       .review-toggle{
+          cursor : pointer;
+          color : #17a2b8;
+          font-weight : bold;
+          text-decoration: underline;
+       }
+       .review-toggle:hover{
+          color: #1391a0;
+       }
+  </style>
+  <script>
+      function toggle() {
+          var reviewForm = document.getElementById("review-form");
+          if (reviewForm.style.display === "none" || reviewForm.style.display === "") {
+              reviewForm.style.display = "block";
+          } else {
+              reviewForm.style.display = "none";
+          }
+      }
+  </script>
 </head>
 <body>
 	<div class="container">
@@ -64,6 +85,8 @@
                     <td>작성일 : <fmt:formatDate value="${review.created_at}" pattern="yyyy-MM-dd" /></td>
                     <td>${review.content}<td>
                     <td>평점 : <span class="badge badge-danger">${review.rating}</span></td>
+                    <td><a href="/s01/reviewRemove/${review.id}/${book.id}" class="btn btn-warning btn-sm">삭제</a></td>
+
                   </tr>
 	          </c:forEach>
 	         </c:if>
@@ -74,6 +97,10 @@
 	         </c:if>
 	       </table>
 	       <!-- 리뷰 : 내용, 작성자(로그인), 평점(1~5) -->
+	       <div class="text-center mt-4">
+              <span class="review-toggle" onclick="toggle()">리뷰 및 평점 쓰기</span>
+	       </div>
+	       <div id="review-form" class="mt-3 mb-3" style="display:none;">
 	       <h3>리뷰 작성</h3>
            <form action="/s01/reviewAdd" method="post">
            <input type="hidden" name="book_id" value="${book.id}"/>
@@ -101,6 +128,7 @@
               </tr>
            </table>
           </form>
+          </div>
 	    </div>
 	    <div class="panel-footer">웹기반 인공지능 Track2 (B) - 박매일</div>
 	  </div>

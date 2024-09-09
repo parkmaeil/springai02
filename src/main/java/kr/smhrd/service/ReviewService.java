@@ -24,4 +24,8 @@ public class ReviewService {
     public Double getAvgRating(Long book_id){
         return reviewRepository.getAvgRating(book_id);
     }
+
+    public void reviewRemove(Long id){
+        reviewRepository.reviewDelete(id);
+    }
 }
