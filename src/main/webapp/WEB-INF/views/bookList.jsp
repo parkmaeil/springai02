@@ -7,24 +7,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<div class="container">
-	  <h2>Spring MVC 01</h2>
+	<div class="container mt-4">
+	  <h2>Book ERP System</h2>
 	  <div class="panel panel-default">
-	    <div class="panel-heading">Book</div>
+	    <div class="d-flex mt-3 mb-3 justify-content-center">
+            <form class="form-inline" action="/s01/login" method="post">
+              <label for="username">아이디:</label>
+              <input type="text" class="form-control" placeholder="Enter username" id="username" name="username">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
+              <button type="submit" class="btn btn-primary btn-sm">로그인</button>
+            </form>
+	    </div>
 	    <div class="panel-body">
 	    <table class="table table-bordered table-hover">
         	    		<thead>
         	    			<tr>
-        	    				<td>번호</td>
-        	    				<td>제목</td>
-        	    				<td>가격</td>
-        	    				<td>저자</td>
-        	    				<td>페이지</td>
+        	    				<th>번호</th>
+        	    				<th>제목</th>
+        	    				<th>가격</th>
+        	    				<th>저자</th>
+        	    				<th>페이지</th>
         	    			</tr>
         	    		</thead>
         	    		<tbody>
@@ -34,7 +43,7 @@
         	    				<td><c:out value="${vo.id}" /></td>
         	    				<td><a href="/s01/bookView/${vo.id}"><c:out value="${vo.title}" /></a></td>
         	    				<td><c:out value="${vo.price}" /></td>
-        	    				<<td><c:out value="${vo.author}" /></td>
+        	    				<td><c:out value="${vo.author}" /></td>
         	    				<td><c:out value="${vo.page}" /></td>
         	    			</tr>
         	    			</c:forEach>
@@ -43,7 +52,7 @@
         	    	<button class="btn btn-sm btn-primary" onclick="location.href='/s01/bookRegister'">책등록</button>
 
 	    </div>
-	    <div class="panel-footer">웹기반 인공지능 Track2 (B) - 박매일</div>
+	    <div class="panel-footer mt-4">웹기반 인공지능 Track2 (B) - 박매일</div>
 	  </div>
 	</div>
 </body>

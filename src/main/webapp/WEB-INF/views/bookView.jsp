@@ -66,9 +66,9 @@
 	       <table class="table table-bordered text-center">
 	          <tr>
 	            <td>
-	              <button class="btn btn-sm btn-primary">수정</button>
-	              <button class="btn btn-sm btn-warning">삭제</button>
-	              <button class="btn btn-sm btn-info">목록</button>
+	              <a class="btn btn-sm btn-primary">수정</a>
+	              <a class="btn btn-sm btn-warning">삭제</a>
+	              <a href="/s01/bookList" class="btn btn-sm btn-info">목록</a>
 	            </td>
 	            <td>
 	               수량:<input type="number"/>
