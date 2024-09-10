@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.repository.CartRepository">
+
+    <insert id="save" parameterType="kr.smhrd.entity.Cart">
+        insert into cart(customer_id, book_id, quantity)
+        values(#{customer_id},#{book_id},#{quantity})
+    </insert>
+
+    <select id="findByCustomerId" resultType="kr.smhrd.entity.CartBook">
+        
+
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

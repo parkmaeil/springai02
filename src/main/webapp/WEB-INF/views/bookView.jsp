@@ -32,9 +32,30 @@
               reviewForm.style.display = "none";
           }
       }
+      function addToCart(){
+         // 책id, 고객id, 수량
+         let book_id=${book.id};
+         let customer_id=${cus.id};
+         let quantity=document.getElementById("quantityInput").value;
+
+         console.log(book_id);
+         console.log(customer_id);
+         console.log(quantity);
+         // GET?
+         // location.href="/s01/addToCart?";
+         // POST = form 이용
+         // ajax 비동기 전송(중요), $.ajax(), fetch()~then(), async/await : 내일
+        document.getElementById("quantity").value=quantity;
+        document.getElementById("cartData").submit();
+      }
   </script>
 </head>
 <body>
+    <form id="cartData" action="/s01/addToCart" method="post">
+       <input type="hidden" id="book_id" name="book_id" value="${book.id}"/>
+       <input type="hidden" id="customer_id" name="customer_id" value="${cus.id}"/>
+       <input type="hidden" id="quantity" name="quantity"/>
+    </form>
 	<div class="container">
 	  <h2>Spring MVC 01</h2>
 	  <div class="panel panel-default">
@@ -71,8 +92,13 @@
 	              <a href="/s01/bookList" class="btn btn-sm btn-info">목록</a>
 	            </td>
 	            <td>
-	               수량:<input type="number"/>
-	               <button class="btn btn-sm btn-danger">장바구니담기</button>
+	               수량:<input type="number" value="1" min="1" id="quantityInput"/>
+	               <c:if test="${empty cus}">
+	               <button class="btn btn-sm btn-danger" disabled>장바구니담기</button>
+	               </c:if>
+	               <c:if test="${!empty cus}">
+                   <button class="btn btn-sm btn-danger" onclick="addToCart()">장바구니담기</button>
+                   </c:if>
 	            </td>
 	          </tr>
 	       </table>
@@ -85,8 +111,12 @@
                     <td>작성일 : <fmt:formatDate value="${review.created_at}" pattern="yyyy-MM-dd" /></td>
                     <td>${review.content}<td>
                     <td>평점 : <span class="badge badge-danger">${review.rating}</span></td>
-                    <td><a href="/s01/reviewRemove/${review.id}/${book.id}" class="btn btn-warning btn-sm">삭제</a></td>
-
+                    <c:if test="${cus.id eq review.customer_id}">
+                     <td><a href="/s01/reviewRemove/${review.id}/${book.id}" class="btn btn-warning btn-sm">삭제</a></td>
+                    </c:if>
+                    <c:if test="${cus.id ne review.customer_id}">
+                     <td><button class="btn btn-warning btn-sm disabled">삭제</button></td>
+                    </c:if>
                   </tr>
 	          </c:forEach>
 	         </c:if>

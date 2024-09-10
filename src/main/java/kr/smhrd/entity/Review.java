@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Review {
-    private Long id; // 자동증가(AI)
+    private int id; // 자동증가(AI)
     private Long book_id;// FK(외래키)
     private String content; // 내용
     private int rating; // 평점(1~5)

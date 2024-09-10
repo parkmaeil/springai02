@@ -11,6 +11,11 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+     function goToCart(){
+        location.href="/s01/cartList/"+${cus.id};
+     }
+  </script>
 </head>
 <body>
 	<div class="container mt-4">
@@ -34,6 +39,7 @@
               <label>Reserves:${cus.reserves}</label>
               <button type="submit" class="btn btn-primary btn-sm">로그아웃</button>
             </form>
+            <button class="btn btn-sm btn-success" onclick="goToCart()">장바구니 보기</button>
 	    </div>
 	   </c:if>
 	    <div class="panel-body">
