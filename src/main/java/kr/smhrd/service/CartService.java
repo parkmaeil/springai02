@@ -21,4 +21,8 @@ public class CartService {
    public List<CartBook> cartView(Long customer_id){
        return cartRepository.findByCustomerId(customer_id);
    }
+
+   public void cartRemove(Long id){
+       cartRepository.deleteById(id);
+   }
 }

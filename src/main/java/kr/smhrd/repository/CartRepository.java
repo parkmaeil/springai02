@@ -10,5 +10,5 @@ import java.util.List;
 public interface CartRepository {
     public void save(Cart cart);
     public List<CartBook> findByCustomerId(Long customer_id);
-
+    public void deleteById(Long id);
 }

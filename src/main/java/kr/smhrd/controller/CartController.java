@@ -30,4 +30,11 @@ public class CartController {
         model.addAttribute("cartList", cartList);
         return "cartList"; // cartList.jsp
     }
+
+    @GetMapping("/removeCart/{cart_id}/{customer_id}")
+    public String removeCart(@PathVariable Long cart_id,
+                             @PathVariable Long customer_id){
+        cartService.cartRemove(cart_id);
+        return "redirect:/cartList/"+customer_id;
+    }
 }

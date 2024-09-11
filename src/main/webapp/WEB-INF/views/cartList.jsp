@@ -27,17 +27,21 @@
 	             <th>수량</th>
 	             <th>가격</th>
 	             <th>금액</th>
+	             <th>취소</th>
 	           </tr>
 	         </thead>
 	         <tbody>
+	         <c:set var="totalAmount" value="0"/>
 	         <c:if test="${!empty cartList}">
 	          <c:forEach var="cart" items="${cartList}">
+	            <c:set var="totalAmount" value="${totalAmount+(cart.quantity*cart.price)}"/>
 	            <tr>
 	              <td>${cart.book_id}</td>
 	              <td>${cart.title}</td>
 	              <td>${cart.quantity}</td>
 	              <td>${cart.price}</td>
 	              <td>${cart.quantity*cart.price}</td>
+	              <td><a href="/s01/removeCart/${cart.id}/${cart.customer_id}" class="btn btn-sm btn-warning">취소</a></td>
 	            </tr>
 	          </c:forEach>
 	         </c:if>
@@ -48,6 +52,15 @@
 	         </c:if>
 	         </tbody>
 	      </table
+	      <!-- 총액 표시 -->
+          <div class="text-right">
+            <strong>총 금액 :<fmt:formatNumber value="${totalAmount}" pattern="#,###"/>원</strong>
+          </div>
+	      <!-- 리스트, 구매 버튼 -->
+	      <div class="card-footer text-center">
+	         <a href="/s01/bookList" class="btn btn-secondary btn-sm">리스트</a>
+	         <button class="btn btn-sm btn-success">구매</button>
+	      </div>
 	    </div>
 	    <div class="panel-footer">웹기반 인공지능 Track2 (B) - 박매일</div>
 	  </div>

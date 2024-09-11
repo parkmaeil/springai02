@@ -16,6 +16,10 @@
         on c.book_id=b.id
         where c.customer_id=#{customer_id}
     </select>
+
+    <delete id="deleteById">
+        delete from cart where id=#{id}
+    </delete>
 </mapper>
 
 
