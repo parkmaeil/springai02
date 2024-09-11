@@ -20,6 +20,7 @@ public class CustomerController {
            // 인증성공 - <권한처리(X)>
            // HttpSession
            session.setAttribute("cus", cus);
+
        }
        return "redirect:/bookList";
    }

@@ -39,7 +39,10 @@
               <label>Reserves:${cus.reserves}</label>
               <button type="submit" class="btn btn-primary btn-sm">로그아웃</button>
             </form>
-            <button class="btn btn-sm btn-success" onclick="goToCart()">장바구니 보기</button>
+            <button class="btn btn-sm btn-warning" onclick="goToCart()">
+            장바구니 보기 <span class="badge badge-pill badge-light">4</span>
+            </button>
+
 	    </div>
 	   </c:if>
 	    <div class="panel-body">
