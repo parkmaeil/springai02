@@ -20,6 +20,17 @@
     <delete id="deleteById">
         delete from cart where id=#{id}
     </delete>
+
+    <select id="cartCount" resultType="int"
+                           parameterType="kr.smhrd.entity.Cart">
+        select count(*) from cart c
+        where c.customer_id=#{customer_id} and c.book_id=#{book_id}
+    </select>
+
+    <update id="cartQuantity" parameterType="kr.smhrd.entity.Cart">
+        update cart set quantity=quantity+#{quantity}
+        where customer_id=#{customer_id} and book_id=#{book_id}
+    </update>
 </mapper>
 
 

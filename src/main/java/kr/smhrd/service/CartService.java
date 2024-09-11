@@ -15,7 +15,14 @@ public class CartService {
    private final CartRepository cartRepository;
 
    public void addToCart(Cart cart){
-       cartRepository.save(cart);
+       // save, update ?
+       int count=cartRepository.cartCount(cart);
+       if(count>0){
+           // update
+           cartRepository.cartQuantity(cart);
+       }else {
+           cartRepository.save(cart);
+       }
    }
 
    public List<CartBook> cartView(Long customer_id){
