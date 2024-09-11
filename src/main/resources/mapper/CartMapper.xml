@@ -8,8 +8,13 @@
     </insert>
 
     <select id="findByCustomerId" resultType="kr.smhrd.entity.CartBook">
-        
-
+        select
+        c.id, c.customer_id,c.book_id, c.quantity, c.created_at,
+        b.title, b.price, b.author, b.page
+        from cart c
+        inner join book b
+        on c.book_id=b.id
+        where c.customer_id=#{customer_id}
     </select>
 </mapper>
 
