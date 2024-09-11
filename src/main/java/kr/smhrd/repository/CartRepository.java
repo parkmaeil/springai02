@@ -13,4 +13,5 @@ public interface CartRepository {
     public void deleteById(Long id);
     public int cartCount(Cart cart);
     public void cartQuantity(Cart cart);
+    public void cartQuantityUpdate(Cart cart);
 }

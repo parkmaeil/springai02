@@ -37,4 +37,10 @@ public class CartController {
         cartService.cartRemove(cart_id);
         return "redirect:/cartList/"+customer_id;
     }
+
+    @PostMapping("/cartQuantityUpdate")
+    public String cartQuantityUpdate(Cart cart){
+       cartService.cartQuantityUpdate(cart);
+       return "redirect:/cartList/"+cart.getCustomer_id();
+    }
 }

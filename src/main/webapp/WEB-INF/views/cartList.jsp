@@ -12,8 +12,24 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+     function quantityUpdate(index){
+        //  cart.id, quantity ?
+        let quantity=document.getElementById("cartNumber"+index).value;
+        let cart_id=document.getElementById("cartId"+index).value;
+        console.log(quantity, cart_id);
+        document.getElementById("quantity").value=quantity;
+        document.getElementById("cart_id").value=cart_id;
+        document.getElementById("frm").submit();
+     }
+  </script>
 </head>
 <body>
+    <form id="frm" action="/s01/cartQuantityUpdate" method="post">
+       <input type="hidden" id="quantity" name="quantity"/>
+       <input type="hidden" id="cart_id" name="id"/>
+       <input type="hidden" id="customer_id" name="customer_id" value="${cus.id}"/>
+    </form>
 	<div class="container mt-4">
 	  <h2>Book ERP System</h2>
 	  <div class="panel panel-default">
@@ -33,12 +49,15 @@
 	         <tbody>
 	         <c:set var="totalAmount" value="0"/>
 	         <c:if test="${!empty cartList}">
-	          <c:forEach var="cart" items="${cartList}">
+	          <c:forEach var="cart" items="${cartList}" varStatus="status">
 	            <c:set var="totalAmount" value="${totalAmount+(cart.quantity*cart.price)}"/>
 	            <tr>
 	              <td>${cart.book_id}</td>
 	              <td>${cart.title}</td>
-	              <td>${cart.quantity}</td>
+	              <td>
+	                 <input type="number" onchange="quantityUpdate(${status.index})" id="cartNumber${status.index}" min="1" class="form-control" value="${cart.quantity}"/>
+	                 <input type="hidden" id="cartId${status.index}" value="${cart.id}"/>
+	              </td>
 	              <td>${cart.price}</td>
 	              <td>${cart.quantity*cart.price}</td>
 	              <td><a href="/s01/removeCart/${cart.id}/${cart.customer_id}" class="btn btn-sm btn-warning">취소</a></td>
