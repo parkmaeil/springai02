@@ -11,7 +11,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public Customer login(Customer customer){
+    public Customer login(Customer customer) {
         return customerRepository.findByUsernameAndPassword(customer);
     }
 

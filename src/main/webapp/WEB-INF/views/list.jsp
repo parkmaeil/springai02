@@ -14,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="resources/js/list.js"></script>
+  <script src="${cpath}/resources/js/list.js"></script>
   <script>
       bookListFn(); // 함수
   </script>
@@ -44,7 +44,7 @@
       <button class="btn btn-sm btn-primary" onclick="toggle()">등록</button>
       <div class="mt-4" id="book_register" style="display:none;">
        <!-- 책 등록 폼 -->
-          <form action="${cpath}/bookRegister" method="post">
+          <form>
               <div class="form-group">
                 <label for="title">제목:</label>
                 <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">
@@ -61,7 +61,7 @@
                  <label for="page">페이지:</label>
                  <input type="number" class="form-control" placeholder="Enter page" name="page" id="page">
                </div>
-              <button type="submit" class="btn btn-primary btn-sm">등록</button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="register()">등록</button>
               <button type="reset" class="btn btn-danger btn-sm">취소</button>
           </form>
       </div>

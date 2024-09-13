@@ -51,4 +51,17 @@ public class BookRestController {
         return "ok"; // 응답
     }
 
+    @GetMapping("/book/{id}")
+    /*
+      request(요청)
+      책상세보기 : GET : http://localhost:8081/s02/api/book/{id}
+      id : 책 번호
+      response(응답)
+      {"id":18,"title":"212","price":21,"author":"21","page":21}
+     */
+    public Book getByBook(@PathVariable Long id){
+        //Book book=bookService.view(id);
+        return bookService.view(id);
+    }
+
 }

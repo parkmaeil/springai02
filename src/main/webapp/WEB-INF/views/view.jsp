@@ -14,9 +14,9 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="resources/js/list.js"></script>
+  <script src="${cpath}/resources/js/view.js"></script>
   <script>
-      bookListFn(); // 함수
+       bookView("${id}");
   </script>
 </head>
 <body>
@@ -25,7 +25,7 @@
   <h2>Restful Service(SOA), Rest API</h2>
   <div class="card">
     <div class="card-header">Book View</div>
-     <div class="card-body">
+     <div id="bookView" class="card-body">
 
      </div>
     </div>
