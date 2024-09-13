@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
   </script>
 </head>
 <body>
-    <form id="frm" action="/s01/cartQuantityUpdate" method="post">
+    <form id="frm" action="${cpath}/cartQuantityUpdate" method="post">
        <input type="hidden" id="quantity" name="quantity"/>
        <input type="hidden" id="cart_id" name="id"/>
        <input type="hidden" id="customer_id" name="customer_id" value="${cus.id}"/>
@@ -60,7 +61,7 @@
 	              </td>
 	              <td>${cart.price}</td>
 	              <td>${cart.quantity*cart.price}</td>
-	              <td><a href="/s01/removeCart/${cart.id}/${cart.customer_id}" class="btn btn-sm btn-warning">취소</a></td>
+	              <td><a href="${cpath}/removeCart/${cart.id}/${cart.customer_id}" class="btn btn-sm btn-warning">취소</a></td>
 	            </tr>
 	          </c:forEach>
 	         </c:if>
@@ -77,7 +78,7 @@
           </div>
 	      <!-- 리스트, 구매 버튼 -->
 	      <div class="card-footer text-center">
-	         <a href="/s01/bookList" class="btn btn-secondary btn-sm">리스트</a>
+	         <a href="${cpath}/bookList" class="btn btn-secondary btn-sm">리스트</a>
 	         <button class="btn btn-sm btn-success">구매</button>
 	      </div>
 	    </div>

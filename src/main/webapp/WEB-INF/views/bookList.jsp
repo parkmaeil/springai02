@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
      function goToCart(){
-        location.href="/s01/cartList/"+${cus.id};
+        location.href="${cpath}/cartList/"+${cus.id};
      }
   </script>
 </head>
@@ -23,7 +25,7 @@
 	  <div class="panel panel-default">
 	  <c:if test="${empty cus}">
 	    <div class="d-flex mt-3 mb-3 justify-content-center">
-            <form class="form-inline" action="/s01/login" method="post">
+            <form class="form-inline" action="${cpath}/login" method="post">
               <label for="username">아이디:</label>
               <input type="text" class="form-control" placeholder="Enter username" id="username" name="username">
               <label for="password">Password:</label>
@@ -34,7 +36,7 @@
 	   </c:if>
 	   <c:if test="${not empty cus}">
         <div class="d-flex mt-3 mb-3 justify-content-center">
-            <form class="form-inline" action="/s01/logout" method="post">
+            <form class="form-inline" action="${cpath}/logout" method="post">
               <label>Welcome:${cus.name}님 방문을 환영합니다.</label>
               <label>Reserves:${cus.reserves}</label>
               <button type="submit" class="btn btn-primary btn-sm">로그아웃</button>
@@ -61,7 +63,7 @@
         	    			<c:forEach varStatus="i"  var="vo"	items="${bookList}">
         	    			<tr>
         	    				<td><c:out value="${vo.id}" /></td>
-        	    				<td><a href="/s01/bookView/${vo.id}"><c:out value="${vo.title}" /></a></td>
+        	    				<td><a href="${cpath}/bookView/${vo.id}"><c:out value="${vo.title}" /></a></td>
         	    				<td><c:out value="${vo.price}" /></td>
         	    				<td><c:out value="${vo.author}" /></td>
         	    				<td><c:out value="${vo.page}" /></td>
@@ -70,7 +72,7 @@
         	    		</tbody>
         	    	</table>
         	    	<c:if test="${not empty cus}">
-        	    	   <button class="btn btn-sm btn-primary" onclick="location.href='/s01/bookRegister'">책등록</button>
+        	    	   <button class="btn btn-sm btn-primary" onclick="location.href='${cpath}/bookRegister'">책등록</button>
                     </c:if>
 	    </div>
 	    <div class="panel-footer mt-4">웹기반 인공지능 Track2 (B) - 박매일</div>

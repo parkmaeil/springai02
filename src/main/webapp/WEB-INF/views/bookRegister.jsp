@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
 	    <div class="panel-heading">책 등록하기</div>
 	    <div class="panel-body">
 	       <!-- 책 등록 폼 -->
-           <form action="/s01/bookRegister" method="post">
+           <form action="${cpath}/bookRegister" method="post">
              <div class="form-group">
                <label for="title">제목:</label>
                <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">

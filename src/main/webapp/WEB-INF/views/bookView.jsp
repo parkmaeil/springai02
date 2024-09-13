@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +43,7 @@
          console.log(customer_id);
          console.log(quantity);
          // GET?
-         // location.href="/s01/addToCart?";
+         // location.href="${cpath}/addToCart?";
          // POST = form 이용
          // ajax 비동기 전송(중요), $.ajax(), fetch()~then(), async/await : 내일
         document.getElementById("quantity").value=quantity;
@@ -51,7 +52,7 @@
   </script>
 </head>
 <body>
-    <form id="cartData" action="/s01/addToCart" method="post">
+    <form id="cartData" action="${cpath}/addToCart" method="post">
        <input type="hidden" id="book_id" name="book_id" value="${book.id}"/>
        <input type="hidden" id="customer_id" name="customer_id" value="${cus.id}"/>
        <input type="hidden" id="quantity" name="quantity"/>
@@ -89,7 +90,7 @@
 	            <td>
 	              <a class="btn btn-sm btn-primary">수정</a>
 	              <a class="btn btn-sm btn-warning">삭제</a>
-	              <a href="/s01/bookList" class="btn btn-sm btn-info">목록</a>
+	              <a href="${cpath}/bookList" class="btn btn-sm btn-info">목록</a>
 	            </td>
 	            <td>
 	               수량:<input type="number" value="1" min="1" id="quantityInput"/>
@@ -112,7 +113,7 @@
                     <td>${review.content}<td>
                     <td>평점 : <span class="badge badge-danger">${review.rating}</span></td>
                     <c:if test="${cus.id eq review.customer_id}">
-                     <td><a href="/s01/reviewRemove/${review.id}/${book.id}" class="btn btn-warning btn-sm">삭제</a></td>
+                     <td><a href="${cpath}/reviewRemove/${review.id}/${book.id}" class="btn btn-warning btn-sm">삭제</a></td>
                     </c:if>
                     <c:if test="${cus.id ne review.customer_id}">
                      <td><button class="btn btn-warning btn-sm disabled">삭제</button></td>
@@ -132,7 +133,7 @@
 	       </div>
 	       <div id="review-form" class="mt-3 mb-3" style="display:none;">
 	       <h3>리뷰 작성</h3>
-           <form action="/s01/reviewAdd" method="post">
+           <form action="${cpath}/reviewAdd" method="post">
            <input type="hidden" name="book_id" value="${book.id}"/>
            <input type="hidden" name="customer_id" value="${cus.id}"/>
            <table class="table">
