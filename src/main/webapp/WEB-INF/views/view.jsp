@@ -28,6 +28,11 @@
      <div id="bookView" class="card-body">
 
      </div>
+     <div class="mx-4 mb-4">
+      <button class="btn btn-sm btn-primary">리스트</button>
+      <button class="btn btn-sm btn-primary">수정</button>
+      <button class="btn btn-sm btn-primary">삭제</button>
+     </div>
     </div>
     <div class="card-footer">웹기반 인공지능 Track2 (B) - 박매일</div>
   </div>
