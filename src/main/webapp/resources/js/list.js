@@ -43,3 +43,12 @@ function goDelete(id){
         console.log(error);
      });
 }
+
+ function toggle() {
+     var reviewForm = document.getElementById("book_register");
+     if (reviewForm.style.display === "none" || reviewForm.style.display === "") {
+             reviewForm.style.display = "block";
+        } else {
+             reviewForm.style.display = "none";
+     }
+ }

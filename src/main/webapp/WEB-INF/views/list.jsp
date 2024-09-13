@@ -41,6 +41,30 @@
 
           </tbody>
       </table>
+      <button class="btn btn-sm btn-primary" onclick="toggle()">등록</button>
+      <div class="mt-4" id="book_register" style="display:none;">
+       <!-- 책 등록 폼 -->
+          <form action="${cpath}/bookRegister" method="post">
+              <div class="form-group">
+                <label for="title">제목:</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">
+              </div>
+              <div class="form-group">
+                <label for="price">가격:</label>
+                <input type="number" class="form-control" placeholder="Enter price" name="price" id="price">
+              </div>
+               <div class="form-group">
+                 <label for="author">저자:</label>
+                 <input type="text" class="form-control" placeholder="Enter author" name="author" id="author">
+               </div>
+               <div class="form-group">
+                 <label for="page">페이지:</label>
+                 <input type="number" class="form-control" placeholder="Enter page" name="page" id="page">
+               </div>
+              <button type="submit" class="btn btn-primary btn-sm">등록</button>
+              <button type="reset" class="btn btn-danger btn-sm">취소</button>
+          </form>
+      </div>
     </div>
     <div class="card-footer">웹기반 인공지능 Track2 (B) - 박매일</div>
   </div>
