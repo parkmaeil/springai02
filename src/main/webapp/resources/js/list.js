@@ -28,5 +28,18 @@ function bookListFn(){
 function goDelete(id){
     console.log(id);
     // DELETE : http://localhost:8081/s02/api/book/{id}
-     
+    let deleteURL="http://localhost:8081/s02/api/book/"+id;
+    fetch(deleteURL,{
+        method : "DELETE"
+    })
+    .then(response=>{
+         if(!response.ok){  // ok=true, false
+            throw new Error("Network response was not ok");
+         }
+         // 다시 리스트 페이지로~~
+         location.href="/s02/list";
+      })
+    .catch(error=>{
+        console.log(error);
+     });
 }
