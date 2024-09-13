@@ -15,6 +15,10 @@
 			              resultType="kr.smhrd.entity.Book">
 		select * from book where id=#{id}
 	</select>
+
+	<delete id="deleteById">
+		delete from book where id=#{id}
+	</delete>
 </mapper>
 
 

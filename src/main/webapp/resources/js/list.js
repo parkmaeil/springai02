@@ -15,6 +15,7 @@ function bookListFn(){
            html+=`<td>${book.price}</td>`;
            html+=`<td>${book.author}</td>`;
            html+=`<td>${book.page}</td>`;
+           html+="<td><button class='btn btn-sm btn-warning' onclick='goDelete("+book.id+")'>삭제</button></td>";
            html+="</tr>";
        });
        document.getElementById("blist").innerHTML=html;
@@ -24,3 +25,8 @@ function bookListFn(){
     });
 }
 
+function goDelete(id){
+    console.log(id);
+    // DELETE : http://localhost:8081/s02/api/book/{id}
+     
+}

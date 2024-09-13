@@ -38,4 +38,17 @@ public class BookRestController {
         bookService.register(book);
         return "ok"; // 응답
     }
+
+    @DeleteMapping("/book/{id}") // ?id=1
+    /*
+      request(요청)
+      DELETE : http://localhost:8081/s02/api/book/{id}
+      id : 삭제할 책 번호
+      response(응답) : ok
+    */
+    public String remove(@PathVariable Long id){
+        bookService.remove(id); // 삭제
+        return "ok"; // 응답
+    }
+
 }

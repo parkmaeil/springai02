@@ -34,6 +34,7 @@
                  <th>가격</th>
                  <th>저자</th>
                  <th>페이지</th>
+                 <th>삭제</th>
               </tr>
           </thead>
           <tbody id="blist">

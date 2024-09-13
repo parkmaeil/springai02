@@ -33,4 +33,8 @@ public class BookService {
         // 추가 로직~~~
         return bookRepository.findById(id);
     }
+
+    public void remove(Long id){
+        bookRepository.deleteById(id);
+    }
 }
