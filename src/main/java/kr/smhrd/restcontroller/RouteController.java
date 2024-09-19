@@ -21,4 +21,10 @@ public class RouteController {
          model.addAttribute("id", id);
          return "view"; // view.jsp
      }
+
+     @GetMapping("/update/{id}")
+     public String update(@PathVariable Long id, Model model){
+         model.addAttribute("id", id);
+         return "update"; // update.jsp
+     }
 }

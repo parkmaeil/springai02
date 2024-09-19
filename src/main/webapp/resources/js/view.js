@@ -33,3 +33,7 @@ function bookView(id){
        console.log(error);
     });
 }
+
+function goUpdate(id){
+    location.href="/s02/update/"+id;
+}

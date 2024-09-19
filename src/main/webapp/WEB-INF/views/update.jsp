@@ -14,9 +14,9 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="${cpath}/resources/js/view.js"></script>
+  <script src="${cpath}/resources/js/update.js"></script>
   <script>
-       bookView("${id}");
+      bookUpdateFn("${id}"); // 함수
   </script>
 </head>
 <body>
@@ -24,14 +24,9 @@
 <div class="container mt-4">
   <h2>Restful Service(SOA), Rest API</h2>
   <div class="card">
-    <div class="card-header">Book View</div>
-     <div id="bookView" class="card-body">
+    <div class="card-header">Book Update</div>
+     <div class="card-body" id="update">
 
-     </div>
-     <div class="mx-4 mb-4">
-      <button class="btn btn-sm btn-primary">리스트</button>
-      <button class="btn btn-sm btn-primary" onclick="goUpdate(${id})">수정</button>
-      <button class="btn btn-sm btn-primary">삭제</button>
      </div>
     </div>
     <div class="card-footer">웹기반 인공지능 Track2 (B) - 박매일</div>
