@@ -56,6 +56,31 @@ function goList(){
 function goUpdate(id){
   console.log(id); // 번호
   // PUT :  수정 Rest API : 수정번호 + 수정데이터(JSON)
+  let title=document.getElementById("title").value;
+  let price=parseInt(document.getElementById("price").value); // "price" : 30000
+  let author=document.getElementById("author").value;
+  let page=parseInt(document.getElementById("page").value);
+  let formData={
+        title : title,
+        price : price,
+        author : author,
+        page : page
+  };
 
-
+  fetch("http://localhost:8081/s02/api/book/"+id, {
+    method : "PUT",
+    headers : {
+       "Content-Type" : "application/json"
+    },
+    body : JSON.stringify(formData)
+  })
+  .then(response=>{
+     if(!response.ok){
+        throw new Error("Network response was not ok");
+     }
+     location.href="/s02/list";
+   })
+  .catch(error=>{
+     console.log("error", error);
+   });
 }
