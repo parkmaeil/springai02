@@ -18,7 +18,28 @@ function bookUpdateFn(id){
         html+=`<td><input type='text' id='title' class='form-control' value='${book.title}'/></td>`;
         html+="</tr>";
 
+        html+="<tr>";
+        html+="<td>가격</td>";
+        html+=`<td><input type='number' id='price' class='form-control' value='${book.price}'/></td>`;
+        html+="</tr>";
+
+        html+="<tr>";
+        html+="<td>저자</td>";
+        html+=`<td><input type='text' id='author' class='form-control' value='${book.author}'/></td>`;
+        html+="</tr>";
+
+         html+="<tr>";
+         html+="<td>페이지</td>";
+         html+=`<td><input type='text' id='page' class='form-control' value='${book.page}'/></td>`;
+         html+="</tr>";
+
         html+="</table>";
+        // 수정, 취소 버튼
+        html+="<div class='mx-4'>";
+        html+=`<button type='button' class='btn btn-sm btn-primary' onclick='goUpdate(${book.id})'>수정</button>`;
+        html+="<button type='reset' class='btn btn-sm btn-primary'>취소</button>";
+        html+="<button type='button' class='btn btn-sm btn-primary' onclick='goList()'>목록</button>";
+        html+="</div>";
         html+="</form>";
 
         document.getElementById("update").innerHTML=html;
@@ -26,4 +47,15 @@ function bookUpdateFn(id){
     .catch(error=>{
        console.log("error", error);
     });
+}
+
+function goList(){
+   location.href="/s02/list";
+}
+
+function goUpdate(id){
+  console.log(id); // 번호
+  // PUT :  수정 Rest API : 수정번호 + 수정데이터(JSON)
+
+
 }

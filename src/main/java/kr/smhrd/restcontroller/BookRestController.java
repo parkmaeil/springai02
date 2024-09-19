@@ -63,5 +63,17 @@ public class BookRestController {
         //Book book=bookService.view(id);
         return bookService.view(id);
     }
+    /*
+      Rest API
+      request(요청)
+      PUT : http://localhost:8081/s02/api/book/{id}
+      data : json({"title":"자바", ~~~   })
+      response : ok
+     */
+    @PutMapping("/book/{id}")
+    public String bookModify(@PathVariable Long id, @RequestBody Book book){
+        bookService.modify(id, book);
+        return "ok";
+    }
 
 }

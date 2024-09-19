@@ -14,4 +14,5 @@ public interface BookRepository {
    public void save(Book book);
    public Book findById(Long id);
    public void deleteById(Long id);
+   public void update(Long id, Book book);
 }

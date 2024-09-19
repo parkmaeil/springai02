@@ -19,6 +19,15 @@
 	<delete id="deleteById">
 		delete from book where id=#{id}
 	</delete>
+
+	<update id="update" parameterType="kr.smhrd.entity.Book">
+		update book
+		set title=#{title},
+		price=#{price},
+		author=#{author},
+		page=#{page}
+		where id=#{id}
+	</update>
 </mapper>
 
 
