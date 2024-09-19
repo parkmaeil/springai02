@@ -2,6 +2,7 @@ package kr.smhrd.repository;
 
 import kr.smhrd.entity.Book;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,5 +15,5 @@ public interface BookRepository {
    public void save(Book book);
    public Book findById(Long id);
    public void deleteById(Long id);
-   public void update(Long id, Book book);
+   public void update(@Param("id") Long id, @Param("book") Book book);
 }

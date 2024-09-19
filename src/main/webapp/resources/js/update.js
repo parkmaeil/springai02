@@ -78,7 +78,7 @@ function goUpdate(id){
      if(!response.ok){
         throw new Error("Network response was not ok");
      }
-     location.href="/s02/list";
+     location.href="/s02/view/"+id; // 상세보기
    })
   .catch(error=>{
      console.log("error", error);
